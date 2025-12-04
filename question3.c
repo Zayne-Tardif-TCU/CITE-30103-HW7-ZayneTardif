@@ -1,21 +1,29 @@
 #include <stdio.h>
 
-int isEven(int n)
+int isPrime(int n)
 {
-    return (n % 2 == 0);
+    if (n <= 1)
+        return 0;
+
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+    return 1;
 }
 
 int main(void)
 {
-    int num;
+    int n;
 
     printf("Enter an integer: ");
-    scanf("%d", &num);
+    scanf("%d", &n);
 
-    if (isEven(num))
-        printf("%d is even.\n", num);
+    if (isPrime(n))
+        printf("Prime\n");
     else
-        printf("%d is odd.\n", num);
+        printf("Not Prime\n");
 
     return 0;
 }
